@@ -1,8 +1,8 @@
-import ApiReducer from './api.js';
-import RouteReducer from './route.js';
+import ApiReducer from './api';
+import RouteReducer from './route';
 
 module.exports = {
-  posts: ApiReducer.reducers.posts,
+  posts: ApiReducer.posts,
   routing: RouteReducer,
 };
 

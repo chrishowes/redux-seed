@@ -3,10 +3,18 @@ import ReactDOM from 'react-dom';
 
 // redux
 import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+
+// middlware
+import thunk from 'redux-thunk';
+
+const createStoreWithMiddleware = applyMiddleware(
+  thunk
+)(createStore);
+
 import reducers from 'reducers';
 const reducer = combineReducers(reducers);
-const store = createStore(reducer);
+const store = createStoreWithMiddleware(reducer);
 
 // router stuff
 import { Router, Route } from 'react-router';

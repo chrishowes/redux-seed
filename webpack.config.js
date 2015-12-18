@@ -53,6 +53,8 @@ module.exports = {
   plugins: plugins,
   resolve: {
     alias: {
+      api: path.join(__dirname, 'src', 'api'),
+      actions: path.join(__dirname, 'src', 'actions'),
       reducers: path.join(__dirname, 'src', 'reducers'),
       components: path.join(__dirname, 'src', 'components'),
     }
