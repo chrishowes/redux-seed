@@ -27,11 +27,11 @@ const devPlugins = [
 
 const prodPlugins = [
   new webpack.optimize.OccurenceOrderPlugin(),
-  new webpack.optimize.UglifyJsPlugin({
-    compressor: {
-      warnings: false,
-    },
-  }),
+  // new webpack.optimize.UglifyJsPlugin({
+  //   compressor: {
+  //     warnings: false,
+  //   },
+  // }),
 ];
 
 const plugins = basePlugins
@@ -55,8 +55,10 @@ module.exports = {
     alias: {
       api: path.join(__dirname, 'src', 'api'),
       actions: path.join(__dirname, 'src', 'actions'),
+      devtools: path.join(__dirname, 'src', 'devtools'),
       reducers: path.join(__dirname, 'src', 'reducers'),
       components: path.join(__dirname, 'src', 'components'),
+      store: path.join(__dirname, 'src', 'store'),
     }
   },
   module: {
