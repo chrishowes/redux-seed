@@ -4,20 +4,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 function getEntrySources(sources) {
   if (process.env.NODE_ENV !== 'production') {
-    sources.push('webpack-hot-middleware/client');
+    sources.push("webpack-dev-server/client?http://localhost:8080");
   }
 
   return sources;
 }
 
 const basePlugins = [
-  new webpack.DefinePlugin({
-    __DEV__: process.env.NODE_ENV !== 'production',
-    __PRODUCTION__: process.env.NODE_ENV === 'production',
-  }),
   new HtmlWebpackPlugin({
-    template: './index.html',
+    template: './src/index.html',
     inject: 'body',
+  }),
+  new webpack.DefinePlugin({
+    __PRODUCTION__: process.env.NODE_ENV === 'production'
   }),
 ];
 
@@ -40,7 +39,7 @@ const plugins = basePlugins
 
 
 module.exports = {
-  devtool: process.env.NODE_ENV !== 'production' ? 'eval-source-map' : '',
+  devtool: process.env.NODE_ENV !== 'production' ? 'source-map' : '',
   entry: {
     bundle: getEntrySources(['./src/index']),
   },
@@ -52,6 +51,12 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
   },
   plugins: plugins,
+  resolve: {
+    alias: {
+      reducers: path.join(__dirname, 'src', 'reducers'),
+      components: path.join(__dirname, 'src', 'components'),
+    }
+  },
   module: {
     preLoaders: [
       {
@@ -66,7 +71,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loaders: ['react-hot', 'babel-loader?stage=0', 'eslint-loader'],
+        loaders: ['react-hot', 'babel-loader?presets[]=react,presets[]=es2015,presets[]=stage-0', 'eslint-loader'],
         exclude: /node_modules/,
       },
       {

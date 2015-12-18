@@ -1,19 +1,32 @@
-import './styles/styles.css';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+// redux
 import { Provider } from 'react-redux';
-import { ReduxRouter } from 'redux-router';
+import { createStore, combineReducers } from 'redux';
+import reducers from 'reducers';
+const reducer = combineReducers(reducers);
+const store = createStore(reducer);
 
-import configureStore from './store/configureStore';
+// router stuff
+import { Router, Route } from 'react-router';
+import { createHistory } from 'history';
+import { syncReduxAndRouter } from 'redux-simple-router';
+const history = createHistory();
+syncReduxAndRouter(history, store);
 
-const store = configureStore({});
+// import components as pages here
+import IndexPage from 'components/indexPage';
 
-ReactDOM.render(
+// routes go here
+const Application = (
   <div>
     <Provider store={ store }>
-      <ReduxRouter />
+      <Router>
+        <Route path="/" component={IndexPage} />
+      </Router>
     </Provider>
-  </div>,
-  document.getElementById('root')
+  </div>
 );
+
+ReactDOM.render(Application, document.getElementById('root'));

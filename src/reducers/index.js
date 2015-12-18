@@ -1,14 +1,8 @@
-import { combineReducers } from 'redux';
-import { routerStateReducer } from 'redux-router';
-import { reducer as formReducer } from 'redux-form';
-import counter from './counter';
-import session from './session';
+import ApiReducer from './api.js';
+import RouteReducer from './route.js';
 
-const rootReducer = combineReducers({
-  session,
-  counter,
-  router: routerStateReducer,
-  form: formReducer,
-});
+module.exports = {
+  posts: ApiReducer.reducers.posts,
+  routing: RouteReducer,
+};
 
-export default rootReducer;

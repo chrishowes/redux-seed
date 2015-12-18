@@ -10,18 +10,14 @@
   "ecmaFeatures": {
     "arrowFunctions": true,
     "blockBindings": true,
-    "classes": true,
     "defaultParams": true,
     "destructuring": true,
     "forOf": true,
-    "generators": false,
+    "generators": true,
     "modules": true,
     "objectLiteralComputedProperties": true,
     "objectLiteralDuplicateProperties": false,
-    "objectLiteralShorthandMethods": true,
-    "objectLiteralShorthandProperties": true,
     "spread": true,
-    "superInFunctions": true,
     "templateStrings": true,
     "jsx": true
   },
@@ -42,16 +38,11 @@
  */
     "no-shadow": 2,                  // http://eslint.org/docs/rules/no-shadow
     "no-shadow-restricted-names": 2, // http://eslint.org/docs/rules/no-shadow-restricted-names
-    "no-unused-vars": [2, {          // http://eslint.org/docs/rules/no-unused-vars
-      "vars": "local",
-      "args": "after-used"
-    }],
     "no-use-before-define": 0,       // http://eslint.org/docs/rules/no-use-before-define
 
 /**
  * Possible errors
  */
-    "comma-dangle": [2, "always-multiline"],    // http://eslint.org/docs/rules/comma-dangle
     "no-cond-assign": [2, "always"], // http://eslint.org/docs/rules/no-cond-assign
     "no-console": 1,                 // http://eslint.org/docs/rules/no-console
     "no-debugger": 1,                // http://eslint.org/docs/rules/no-debugger
@@ -135,7 +126,6 @@
       "after": true
     }],
     "comma-style": [2, "last"],      // http://eslint.org/docs/rules/comma-style
-    "eol-last": 2,                   // http://eslint.org/docs/rules/eol-last
     "func-names": 1,                 // http://eslint.org/docs/rules/func-names
     "key-spacing": [2, {             // http://eslint.org/docs/rules/key-spacing
         "beforeColon": false,
@@ -183,7 +173,6 @@
     "react/no-did-update-set-state": 2, // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-update-set-state.md
     "react/no-multi-comp": 2,        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md
     "react/no-unknown-property": 2,  // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md
-    "react/prop-types": 2,           // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
     "react/react-in-jsx-scope": 2,   // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
     "react/self-closing-comp": 2,    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
     "react/wrap-multilines": 2,      // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md
