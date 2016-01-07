@@ -1,9 +1,8 @@
 import React from 'react';
 import SecondaryComponent from 'components/secondaryComponent';
 import { connect } from 'react-redux';
-import { api } from 'actions';
+import { api, ui } from 'actions';
 import _ from 'lodash';
-
 
 function mapStateToProps(state) {
   return {
@@ -13,7 +12,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    loadPosts: dispatch(api.posts())
+    loadPosts: dispatch(api.posts()),
+    exampleAction: (id) => dispatch(ui.exampleAction(id))
   };
 }
 
@@ -28,7 +28,7 @@ const IndexPage = React.createClass({
     let postList;
 
     const posts = this.props.posts;
-    if (! _.isEmpty(posts.data)) {
+    if (!_.isEmpty(posts.data)) {
       const data = posts.data.data;
       postList = _.map(data, (p) => <li key={p.id}>{p.title}</li>);
     } else {

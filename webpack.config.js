@@ -74,8 +74,8 @@ module.exports = {
         loader: 'style-loader!css-loader!postcss-loader!cssnext-loader',
       },
       {
-        test: /\.js$/,
-        loaders: ['react-hot', 'babel-loader?presets[]=react,presets[]=es2015,presets[]=stage-0', 'eslint-loader'],
+        test: /(\.js|\.jsx)$/,
+        loaders: ['react-hot', 'babel-loader', 'eslint-loader'],
         exclude: /node_modules/,
       },
       {
